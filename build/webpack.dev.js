@@ -1,11 +1,17 @@
 const path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin')
 
-
+// const res
 const config = {
     context: path.resolve(__dirname, "../"),
     entry: {
         main: './index.js'
+    },
+    resolve:{
+        alias:{
+            'cre':path.resolve(__dirname , '../src/modules/crePosMonitorServer')
+        },
+        extensions: [".js", ".jsx" , ".json"]
     },
     module: {
         rules: [
