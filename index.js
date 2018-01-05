@@ -1,11 +1,13 @@
-// alert('test')
-
-// import t1 from './src/modules/crePosMonitorServer/test'
+// // alert('test')
 //
-// console.log(t1);
-let fun = ()=>{
-    console.log('test')
-}
+// // import t1 from './src/modules/crePosMonitorServer/test'
+// //
+// // console.log(t1);
+// let fun = ()=>{
+//     console.log('test')
+// }
+//
+//
+// fun();
 
-
-fun();
+import cre from 'cre'

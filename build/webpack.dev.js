@@ -1,3 +1,4 @@
+/*eslint-disable */
 const path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -9,7 +10,8 @@ const config = {
     },
     resolve:{
         alias:{
-            'cre':path.resolve(__dirname , '../src/modules/crePosMonitorServer')
+            'cre':path.resolve(__dirname , '../src/modules/crePosMonitorServer'),
+            'src':path.resolve(__dirname , '../src')
         },
         extensions: [".js", ".jsx" , ".json"]
     },
@@ -25,7 +27,7 @@ const config = {
             {
                 enforce: "pre",
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
+                include: /src/,
                 loader: "eslint-loader"
             }
         ]
