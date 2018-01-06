@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import css from './Header.scss'
+import css from './Header.css'
 
 
 

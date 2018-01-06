@@ -29,6 +29,24 @@ const config = {
                 test: /\.jsx?$/,
                 include: /src/,
                 loader: "eslint-loader"
+            },
+            {
+                test:'/\.css$/',
+                exclude: /node_modules/,
+                use:[
+                    {
+                        loader:'css-loader',
+                        options: {
+                            module:true,
+                            importLoaders: 1,
+                            camelCase:true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: "post-loader"
+                    }
+                ]
             }
         ]
     },
