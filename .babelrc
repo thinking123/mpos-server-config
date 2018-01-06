@@ -1,3 +1,9 @@
 {
-  "presets": ["env" , "react"]
+  "presets": ["env" , "react"],
+  "plugins":[
+    ["imports",{
+      "libraryName": "antd",
+      "style": true
+    },"transform-class-properties"]
+  ]
 }
