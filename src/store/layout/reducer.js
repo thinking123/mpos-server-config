@@ -1,4 +1,10 @@
-let user = {}
+let user = {
+    account:'',
+    isLogin:false,
+    loginDate:'',
+    logoutDate:'',
+    token:''
+}
 
 
 if(localStorage.getItem('CRE_ACCOUNT')){
@@ -9,20 +15,25 @@ if(localStorage.getItem('CRE_ACCOUNT')){
             account:'',
             isLogin:false,
             loginDate:'',
-            logoutDate:''
+            logoutDate:'',
+            token:''
         }
     }
 }
 
 
 
-export function account(state = user , action){
+export default function account(state = user , action){
     switch (action.type){
         case 'CRE_LOGIN':
-            return {...state , loginDate:new Date() , isLogin :true}
+            let res = {...state , loginDate:new Date() , isLogin :true , token:action.token ,account:action.account}
+            localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(res))
+            return res
         case 'CRE_LOGOUT':
             return {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
         default:
+
+            console.log('default' , state)
             return state;
     }
 }

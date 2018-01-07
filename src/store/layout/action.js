@@ -1,8 +1,10 @@
 import axios from 'src/http'
 import {parseRespond} from 'src/utils/http'
-const loginUrl = ''
-export const login = (account , password)=>{
+import 'babel-polyfill' // polyfill for regenerator runtime ,then you can use async in action
+const loginUrl = '/login'
+export const login = (account , password )=>{
 
+    // console.log( this.history)
     return async (dispatch)=>{
 
        let data = await axios.post(loginUrl , {
@@ -14,8 +16,11 @@ export const login = (account , password)=>{
         dispatch({
             type:'CRE_LOGIN',
             account: account,
+            token:data.token
         })
 
+        // console.log(history)
+        // history.push(history.state.from)
     }
 
 }

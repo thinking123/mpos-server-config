@@ -1,3 +1,3 @@
 export const parseRespond = (res)=>{
-    return res.data
+    return res.data.data
 }

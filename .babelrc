@@ -1,9 +1,12 @@
 {
-  "presets": ["env" , "react"],
+  "presets": [  "es2015" ,"react" ,"stage-0" ],
   "plugins":[
-    ["imports",{
-      "libraryName": "antd",
-      "style": true
-    },"transform-class-properties"]
+//    ["babel-plugin-import",{
+//      "libraryName": "antd",
+//      "style": "css"
+//    }],
+    ["import", { "libraryName": "antd", "style": true }],
+    "transform-class-properties",
+    "transform-object-rest-spread"
   ]
 }

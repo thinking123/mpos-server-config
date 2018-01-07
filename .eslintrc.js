@@ -1,4 +1,7 @@
 module.exports = {
+    //You only need to use babel-eslint if you are using types (Flow) or experimental features not supported in ESLint itself yet.
+    "parser": "babel-eslint",
+
     "env": {
         "browser": true,
         "commonjs": true,
@@ -13,7 +16,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "eslint-plugin-class-property"
     ],
     "rules": {
         "indent": 0,
@@ -25,6 +29,7 @@ module.exports = {
         "semi": 0,
         "no-console":0,
         "no-unused-vars":0,
-        "no-empty":0
+        "no-empty":0,
+        "no-case-declarations":0
     }
 };
