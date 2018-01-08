@@ -15,7 +15,7 @@ export const mapStateToProps = state => {
 export const mapDispatchToProps = dispatch => {
     return {
         onLogInClick: user => {
-            dispatch(login(user.account))
+            dispatch(login(user.account,user.password))
         },
     }
 }

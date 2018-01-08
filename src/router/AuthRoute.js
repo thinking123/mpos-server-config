@@ -3,9 +3,12 @@ import {
     Route,
     Redirect
 } from 'react-router-dom'
-const AuthRoute = ({component: Component, ...rest}) => {
+const AuthRoute = ({component: Component, store , ...rest }) => {
 
-    let isLogin = rest.store.getState().user.isLogin;
+    console.log('store' , store , rest ,Component)
+    let isLogin = store.getState().user.isLogin;
+
+    console.log('is loged' , isLogin ,Component )
     return (
         <Route {...rest} render={props => (
             isLogin ? (

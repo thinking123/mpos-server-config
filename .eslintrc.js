@@ -21,15 +21,12 @@ module.exports = {
     ],
     "rules": {
         "indent": 0,
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "quotes": 0,
         "semi": 0,
         "no-console":0,
         "no-unused-vars":0,
         "no-empty":0,
-        "no-case-declarations":0
+        "no-case-declarations":0,
+        "linebreak-style":0
     }
 };

@@ -8,12 +8,32 @@ let mock = new MockAdapter(axios , { delayResponse: 2000 });
 
 
 mock.onPost('/login').reply(config=>{
+    console.log(config)
+    const {account , password} = JSON.parse(config.data)
+
     return [200 , {
         data:{
             token:'test of token'
         },
         status:'200'
     }]
+    //
+    // if(account == 'test' && password == "123"){
+    //     return [200 , {
+    //         data:{
+    //             token:'test of token'
+    //         },
+    //         status:'200'
+    //     }]
+    // }else{
+    //     return [401 , {
+    //         data:{
+    //             message:'login error'
+    //         },
+    //         status:'401'
+    //     }]
+    // }
+
 })
 
 
