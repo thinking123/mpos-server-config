@@ -4,17 +4,16 @@ import {connect} from 'react-redux'
 import css from './Loading.css'
 
 
-const Loading = ({isLoading, text}) => (
-    isLoading ? <div className={css.wrap}>
+const Loading = ({loading}) => (
+    loading.isLoading ? <div className={css.wrap}>
         <div>
             <Spin/>
             <div>
-                {text}
+                {loading.text}
             </div>
         </div>
     </div> : null
 )
-
 
 export const mapStateToProps = state => {
     return {
