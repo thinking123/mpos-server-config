@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import {login , logout} from 'src/store/layout/action'
+import {logout} from 'src/store/layout/action'
 const getUserInfo = user =>{
     return user
 }

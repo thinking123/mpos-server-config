@@ -1,4 +1,21 @@
 import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
+
+
+let mock = new MockAdapter(axios , { delayResponse: 2000 });
+
+
+
+
+mock.onPost('/login').reply(config=>{
+    return [200 , {
+        data:{
+            token:'test of token'
+        },
+        status:'200'
+    }]
+})
+
 
 axios.defaults.timeout = 20000;
 axios.defaults.baseURL = '/';

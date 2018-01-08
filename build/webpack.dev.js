@@ -6,23 +6,24 @@ const path = require('path'),
 const config = {
     context: path.resolve(__dirname, "../"),
     entry: {
-        main: './index.js'
+        main: './src/index.js'
     },
-    resolve:{
-        alias:{
-            'cre':path.resolve(__dirname , '../src/modules/crePosMonitorServer'),
-            'src':path.resolve(__dirname , '../src')
+    resolve: {
+        alias: {
+            'cre': path.resolve(__dirname, '../src/modules/crePosMonitorServer'),
+            'src': path.resolve(__dirname, '../src')
         },
-        extensions: [".js", ".jsx" , ".json"]
+        extensions: [".js", ".jsx", ".json"]
     },
     module: {
         rules: [
             {
-                test: '/\.jsx?$/',
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                test: /\.jsx?$/,
+                include: /src/,
+                // use: [{
+                //     loader: 'babel-loader'
+                // }]
+                loader: 'babel-loader'
             },
             {
                 enforce: "pre",
@@ -31,20 +32,49 @@ const config = {
                 loader: "eslint-loader"
             },
             {
-                test:'/\.css$/',
-                exclude: /node_modules/,
-                use:[
+                test: /\.css$/,
+                include: /src/,
+                use: [
                     {
-                        loader:'css-loader',
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
                         options: {
-                            module:true,
+                            module: true,
                             importLoaders: 1,
-                            camelCase:true,
+                            camelCase: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
                         }
                     },
                     {
-                        loader: "post-loader"
+                        loader: "postcss-loader"
+                    }
+                ]
+            },
+            {
+                //for parse ant design lib css and less files
+                test: /\.(le|c)ss$/,
+                include: /node_modules/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // module: true,
+                            // importLoaders: 1,
+                            // camelCase: true,
+                            // localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            // sourceMap: true
+                        }
+                    },
+                    {
+                        loader: "less-loader",
+                        options: {
+                            // sourceMap: true
+                        }
                     }
                 ]
             }
