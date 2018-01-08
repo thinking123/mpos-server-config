@@ -5,14 +5,20 @@ import middleware from './middleware'
 import cre from 'cre/store'
 import user from './layout/reducer'
 
+import {routerReducer} from 'react-router-redux'
+
+
+
+
 // console.log('in store' , user)
 const reducers = combineReducers(
     {
-        user
+        user,
+        router: routerReducer
     }
 )
 
-export default createStore(reducers,
-    //middleware export array , but applyMiddleware need not array so use apply
-    applyMiddleware.apply(this, middleware)
+export default createStore(
+    reducers,
+    applyMiddleware(...middleware)
 )
