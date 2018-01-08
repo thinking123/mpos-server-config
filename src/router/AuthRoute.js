@@ -3,12 +3,11 @@ import {
     Route,
     Redirect
 } from 'react-router-dom'
-const AuthRoute = ({component: Component, store , ...rest }) => {
+import {connect} from'react-redux'
+import {withRouter} from 'react-router-dom'
+const AuthRoute = ({component: Component, user , ...rest }) => {
 
-    console.log('store' , store , rest ,Component)
-    let isLogin = store.getState().user.isLogin;
-
-    console.log('is loged' , isLogin ,Component )
+    let isLogin = user.isLogin
     return (
         <Route {...rest} render={props => (
             isLogin ? (
@@ -22,5 +21,10 @@ const AuthRoute = ({component: Component, store , ...rest }) => {
         )}/>
     )
 }
-
-export default AuthRoute
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+// export default AuthRoute
+export default  connect(mapStateToProps)(AuthRoute)
