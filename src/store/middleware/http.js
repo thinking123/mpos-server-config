@@ -4,42 +4,46 @@ import axiosMiddleware from 'redux-axios-middleware';
 
 import MockAdapter from 'axios-mock-adapter'
 
-import {startLoading , endLoading} from 'src/store/base/loading/action'
+import {startLoading, endLoading} from 'src/store/base/loading/action'
 
 
 const client = axios.create({
-    responseType: 'json'
+    responseType: 'json',
+    baseURL:'https://github.com/axios/axios'
 })
-let mock = new MockAdapter(client, {delayResponse: 2000});
 
-mock.onPost('/login').reply(config => {
-    // console.log(config)
-    const {account, password} = config.data
-
-    // return [200 , {
-    //     data:{
-    //         token:'test of token'
-    //     },
-    //     status:'200'
-    // }]
-    //
-    if (account == 'test' && password == "123") {
-        return [200, {
-            data: {
-                token: 'test of token'
-            },
-            status: '200'
-        }]
-    } else {
-        return [401, {
-            data: {
-                message: 'login error'
-            },
-            status: '401'
-        }]
-    }
-
-})
+//
+// let mock = new MockAdapter(client, {delayResponse: 2000});
+//
+// mock.onPost('/login').reply(config => {
+//     // console.log(config)
+//     const {account, password} = config.data
+//
+//     console.log('this is mock 11111111111')
+//     // return [200 , {
+//     //     data:{
+//     //         token:'test of token'
+//     //     },
+//     //     status:'200'
+//     // }]
+//     //
+//     if (account == 'test' && password == "123") {
+//         return [200, {
+//             data: {
+//                 token: 'test of token'
+//             },
+//             status: '200'
+//         }]
+//     } else {
+//         return [401, {
+//             data: {
+//                 message: 'login error'
+//             },
+//             status: '401'
+//         }]
+//     }
+//
+// })
 let queue = []
 const begin = (dispatch) => {
     setTimeout(() => {
@@ -48,17 +52,19 @@ const begin = (dispatch) => {
     }, 100)
 }
 const end = (dispatch) => {
-    setTimeout(() => queue.pop({}), 100)
-    queue.length == 0 && dispatch(endLoading())
-}
+    setTimeout(() => {
+        queue.pop({})
+        queue.length == 0 && dispatch(endLoading())
+    }, 100)
 
+}
 
 
 const middlewareConfig = {
     interceptors: {
         request: [{
             success: function ({getState, dispatch, getSourceAction}, req) {
-                console.log('begin' , req); //contains information about request object
+                console.log('begin', req); //contains information about request object
                 //...
                 begin(dispatch)
 
@@ -71,7 +77,7 @@ const middlewareConfig = {
         ],
         response: [{
             success: function ({getState, dispatch, getSourceAction}, req) {
-                console.log('end' , req); //contains information about request object
+                console.log('end', req); //contains information about request object
                 end(dispatch)
                 //...
             },
@@ -85,4 +91,4 @@ const middlewareConfig = {
 }
 
 
-export default  axiosMiddleware(client, middlewareConfig)
+export default axiosMiddleware(client, middlewareConfig)

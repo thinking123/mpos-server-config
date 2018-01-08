@@ -11,7 +11,7 @@ import css from './Header.css'
              <div>
                  user.account
              </div>
-             <button onClick={()=>onLogOutClick(user.account)}>
+             <button onClick={()=>onLogOutClick(user)}>
                  LogOut
              </button>
          </div>

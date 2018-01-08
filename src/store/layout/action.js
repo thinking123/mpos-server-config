@@ -4,6 +4,7 @@ import 'babel-polyfill' // polyfill for regenerator runtime ,then you can use as
 import history from 'src/utils/history'
 import {showMessage} from 'src/utils/util'
 import {push, replace, redirect} from 'react-router-redux'
+
 const loginUrl = '/login'
 
 export const login = (account, password) => {
@@ -11,10 +12,11 @@ export const login = (account, password) => {
 
 
         dispatch({
-            type: 'LOAD',
+            type: 'HTTP',
             payload: {
                 request: {
                     url: loginUrl,
+                    method: 'post',
                     data: {
                         account,
                         password
@@ -22,11 +24,17 @@ export const login = (account, password) => {
                 }
             }
         }).then((data) => {
-            console.log('data' , data)
+            console.log('data', data)
+
+                    dispatch({
+                        type: 'CRE_LOGIN',
+                        account: account,
+                        token: '111'
+                    })
+            dispatch(replace('/'))
+        }).catch(e => {
+            showMessage(e)
         })
-            .catch(e => {
-                showMessage(e)
-            })
 
 
         //

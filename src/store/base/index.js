@@ -1,6 +1,6 @@
-import loading from './loading'
+import loading from './loading/reducer'
+import { combineReducers } from 'redux'
 
-
-export default {
+export default combineReducers({
     loading
-}
+})
