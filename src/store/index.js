@@ -4,6 +4,7 @@ import middleware from './middleware'
 
 import cre from 'cre/store'
 import user from './layout/reducer'
+import base from './base/loading/reducer'
 
 import {routerReducer} from 'react-router-redux'
 
@@ -14,6 +15,7 @@ import {routerReducer} from 'react-router-redux'
 const reducers = combineReducers(
     {
         user,
+        base,
         router: routerReducer
     }
 )

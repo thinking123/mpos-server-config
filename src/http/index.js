@@ -40,9 +40,18 @@ mock.onPost('/login').reply(config=>{
 axios.defaults.timeout = 20000;
 axios.defaults.baseURL = '/';
 
+
+const begin = ()=>{
+
+}
+const end = ()=>{
+
+}
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
+
+
     return config;
 }, function (error) {
     // Do something with request error
