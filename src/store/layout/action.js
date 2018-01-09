@@ -31,7 +31,7 @@ export const login = (account, password) => {
                         account: account,
                         token: '111'
                     })
-            dispatch(replace('/'))
+            dispatch(replace('/cre/cash-register-status-config'))
         }).catch(e => {
             showMessage(e)
         })

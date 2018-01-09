@@ -32,8 +32,6 @@ export default function account(state = user , action){
         case 'CRE_LOGOUT':
             return {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
         default:
-
-            console.log('default' , state)
             return state;
     }
 }

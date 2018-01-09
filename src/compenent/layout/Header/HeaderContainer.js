@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
 import {logout} from 'src/store/layout/action'
+import {toggleSidebar} from 'src/store/base/action'
 const getUserInfo = user =>{
     return user
 }
@@ -7,14 +7,18 @@ const getUserInfo = user =>{
 
 export const mapStateToProps = state => {
     return {
-        user: getUserInfo(state.user)
+        user: getUserInfo(state.user),
+        isShow:state.base.baseConfig.isShow
     }
 }
 
 export const mapDispatchToProps = dispatch => {
     return {
-        onLogOutClick: user => {
-            dispatch(logout(user.account))
+        onLogOutClick: account => {
+            dispatch(logout(account))
         },
+        onToggleSideBarClick:isShow=>{
+            dispatch(toggleSidebar())
+        }
     }
 }

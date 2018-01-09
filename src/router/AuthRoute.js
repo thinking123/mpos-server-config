@@ -8,6 +8,7 @@ import {withRouter} from 'react-router-dom'
 const AuthRoute = ({component: Component, user , ...rest }) => {
 
     let isLogin = user.isLogin
+    console.log('in auth router' , isLogin)
     return (
         <Route {...rest} render={props => (
             isLogin ? (

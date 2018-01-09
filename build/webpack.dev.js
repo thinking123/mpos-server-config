@@ -32,7 +32,7 @@ const config = {
                 loader: "eslint-loader"
             },
             {
-                test: /\.css$/,
+                test: /\.(le|c)ss$/,
                 include: /src/,
                 use: [
                     {
@@ -49,6 +49,12 @@ const config = {
                     },
                     {
                         loader: "postcss-loader"
+                    },
+                    {
+                        loader: "less-loader",
+                        options: {
+                            // sourceMap: true
+                        }
                     }
                 ]
             },

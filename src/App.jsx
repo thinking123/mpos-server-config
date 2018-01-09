@@ -21,14 +21,15 @@ const RouteWithSubRoutes = (route) => (
     <Route path={route.path} render={props => (
         // pass the sub-routes down to keep nesting
         <route.component {...props} routes={route.routes}/>
-    )}/>
+    )
+    }/>
 )
 
 
-const App = ()=>(
+const App = () => (
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <div>
+            <div style={{height: '100%', width: '100%'}}>
                 <Loading/>
                 <Switch>
                     <Route path="/login" exact component={Login}/>

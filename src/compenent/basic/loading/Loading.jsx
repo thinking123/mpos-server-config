@@ -1,7 +1,7 @@
 import React from 'react'
 import {Spin} from 'antd'
 import {connect} from 'react-redux'
-import css from './Loading.css'
+import css from './Loading.less'
 
 
 const Loading = ({loading}) => (
