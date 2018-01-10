@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
+import {toLocalDatetime} from 'src/utils/util'
 import css from './Footer.less'
 
 const getUserInfo = user =>{
@@ -8,7 +9,6 @@ const getUserInfo = user =>{
 
 
 const mapStateToProps = state => {
-    console.log('in fllter' , state)
     return {
         user: getUserInfo(state.user)
     }
@@ -17,8 +17,8 @@ const mapStateToProps = state => {
 
 const Footer = ({user})=>{
     let {loginDate ,logoutDate} = user
-    loginDate = loginDate ? loginDate.toString() : '-'
-    logoutDate = logoutDate ? logoutDate.toString() : '-'
+    loginDate = toLocalDatetime(loginDate)
+    logoutDate = toLocalDatetime(logoutDate)
     return (
     <div className={css.wrap}>
        <div className={css.company}>

@@ -1,5 +1,5 @@
 {
-  "presets": [  "es2015" ,"react" ,"stage-0" ],
+  "presets": [ [ "es2015", { "modules": false }] ,"react" ,"stage-0" ],
   "plugins":[
 //    ["babel-plugin-import",{
 //      "libraryName": "antd",
@@ -7,6 +7,8 @@
 //    }],
     ["import", { "libraryName": "antd", "style": true }],
     "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    //for reactjs hmr
+    "react-hot-loader/babel"
   ]
 }

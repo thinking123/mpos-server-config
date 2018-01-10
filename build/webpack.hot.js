@@ -1,13 +1,15 @@
 /*eslint-disable */
 const path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin')
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    webpack = require('webpack')
 
 // const res
+// 'webpack-hot-middleware/client', 'webpack/hot/dev-server'
 
 const config = {
     context: path.resolve(__dirname, "../"),
     entry: {
-        main: ['./src/index.js']
+        main: ['webpack-hot-middleware/client','./src/index.js']
     },
     resolve: {
         alias: {
@@ -88,25 +90,14 @@ const config = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: '[name]-[hash:5].js',
-        // public:'/'
+        path: path.resolve(__dirname, '../devDist'),
+        filename: 'bundle.js',
+        publicPath:'/'
     },
-    devServer: {
-        compress: true,
-        port: 9000,
-        historyApiFallback: true,
-        // hot: true,
-        open: true,
-        index: 'index.html'
-    },
-    devtool: '#source-map',
+    devtool: 'eval',
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'test.html',
-            title: 'mypro1'
-        })
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
     ]
 }
 

@@ -42,7 +42,7 @@ const Header = (props) => {
         <div className={css.wrap}>
             <div className={css.titleWrap}>
                 <h1>
-                    CRE Server
+                    CRE Server111
                 </h1>
                 <div onClick={onToggleSideBarClick}>
                     {isShow ? <Icon type="menu-fold"/> :

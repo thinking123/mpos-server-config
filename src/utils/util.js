@@ -18,3 +18,12 @@ export const showMessage = (msg , type) => {
             break
     }
 }
+
+
+export const toLocalDatetime = (datetime)=>{
+    if(datetime instanceof Date){
+        return datetime.toLocaleString()
+    }else{
+        return ''
+    }
+}
