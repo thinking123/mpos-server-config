@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devServer": "cls & .\\node_modules\\.bin\\webpack-dev-server --config .\\build\\webpack.dev.js --inline --hot",
+    "devServer": "cls & .\\node_modules\\.bin\\webpack-dev-server --config .\\build\\webpack.dev.js --inline --hot --history-api-fallback",
     "dev": "cls & node ./build/dev.js"
   },
   "keywords": [],

@@ -4,20 +4,22 @@ import React, { Component } from 'react';
 const columns = [
     { title: '', width: 100, key: 'icon', fixed: 'left' ,
     render:()=><Icon type="check-circle" />},
-    { title: '收银机号', dataIndex: 'cashNo'},
-    { title: '状态', dataIndex: 'status'},
-    { title: '最近在线时间', dataIndex: 'lastOnlineTime'},
-    { title: 'IP地址', dataIndex: 'idAddress'},
-    { title: '平台', dataIndex: 'platform'},
-    { title: 'API版本', dataIndex: 'apiVersion'},
-    { title: '版本名', dataIndex: 'versionName'},
-    { title: '版本号', dataIndex: 'version'},
+    { title: '收银机号', dataIndex: 'cashNo', key: 'cashNo'},
+    { title: '状态', dataIndex: 'status', key: 'status'},
+    { title: '最近在线时间', dataIndex: 'lastOnlineTime', key: 'lastOnlineTime'},
+    { title: 'IP地址', dataIndex: 'idAddress', key: 'idAddress'},
+    { title: '平台', dataIndex: 'platform', key: 'platform'},
+    { title: 'API版本', dataIndex: 'apiVersion', key: 'apiVersion'},
+    { title: '版本名', dataIndex: 'versionName', key: 'versionName'},
+    { title: '版本号', dataIndex: 'version', key: 'version'},
     {
         title: '操作',
         key: 'operation',
         fixed: 'right',
         width: 100,
-        render: () => <a href="#">action</a>,
+        render: () => {
+
+            return (<a href="#">强制注销</a>)},
     },
 ];
 const pagination = {
@@ -46,7 +48,7 @@ for(let i = 0 ; i < 120 ; i++){
     data.push(d)
 }
 
-const MyTable = ()=><Table columns={columns} dataSource={data}
-                       pagination={pagination} />
+const MyTable = ()=><Table  columns={columns} dataSource={data}
+                       pagination={pagination} bordered/>
 console.log('muta' , MyTable)
 export default MyTable

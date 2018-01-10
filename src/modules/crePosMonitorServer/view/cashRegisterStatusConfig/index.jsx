@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Input, Button ,Select ,Row,Col} from 'antd';
 import Table from './Table'
+import css from './cashRegisterStatusConfig.less'
 const FormItem = Form.Item
+const Option = Select.Option
 
 
 const hasErrors = (fieldsError)=>{
@@ -23,7 +25,7 @@ class SearchForm extends Component{
         const cashNoError = isFieldTouched('cashNo') && getFieldError('cashNo');
         
         return (
-            <Form layout="inline" onSubmit={this.handleSubmit}>
+            <Form layout="inline" onSubmit={this.handleSubmit} className={css.form}>
                 <FormItem
                     validateStatus={cashNoError ? 'error' : ''}
                     help={cashNoError || ''}
@@ -36,15 +38,16 @@ class SearchForm extends Component{
                     )}
                 </FormItem>
                 <FormItem
+                    label="状态"
                 >
                     {getFieldDecorator('status')(
-                        <Select placeholder="Please select a country">
+                        <Select placeholder="Please select a country" style={{ width: 165 }}>
                             <Option value="china">China</Option>
                             <Option value="use">U.S.A</Option>
                         </Select>
                     )}
                 </FormItem>
-                <Row>
+                <div className={css.btnGroup}>
                     <Button
                         type="primary"
                         htmlType="submit"
@@ -58,7 +61,7 @@ class SearchForm extends Component{
                     >
                         Reset
                     </Button>
-                </Row>
+                </div>
             </Form>
         )
     }

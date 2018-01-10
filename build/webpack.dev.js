@@ -90,15 +90,18 @@ const config = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name]-[hash:5].js',
-        // public:'/'
+        //使用 devServer 必须设置publicPath
+        publicPath: "/"
     },
     devServer: {
         compress: true,
         port: 9000,
-        historyApiFallback: true,
         // hot: true,
         open: true,
-        index: 'index.html'
+        index: 'index.html',
+        // historyApiFallback: {
+        //     index: 'index.html'
+        // }
     },
     devtool: '#source-map',
     plugins: [
