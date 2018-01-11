@@ -8,7 +8,7 @@ export  default class Sidebar extends Component {
     state = {
         menus: [
             {text: '收银机状态', name: 'cashRegisterStatus' , path:"/cre/cash-register-status-config"},
-            {text: '收银机配置', name: 'cashRegisterConfig', path:"/cre/cash-register-status-config"},
+            {text: '收银机配置', name: 'cashRegisterConfig', path:"/cre/cash-register-configuration"},
             {text: '交易数据', name: 'dealData', path:"/cre/cash-register-status-config"},
             {text: '心跳数据', name: 'tickData', path:"/cre/cash-register-status-config"},
             {text: '交易对账', name: 'dealReconciliation', path:"/cre/cash-register-status-config"},

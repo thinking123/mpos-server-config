@@ -30,7 +30,9 @@ export default function account(state = user , action){
             localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(res))
             return res
         case 'CRE_LOGOUT':
-            return {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
+            let resout = {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
+            localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(resout))
+            return resout
         default:
             return state;
     }

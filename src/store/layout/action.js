@@ -1,16 +1,22 @@
 import axios from 'src/http'
 import {parseRespond} from 'src/utils/http'
 import 'babel-polyfill' // polyfill for regenerator runtime ,then you can use async in action
-import history from 'src/utils/history'
+import browserHistory from 'src/utils/history'
 import {showMessage} from 'src/utils/util'
 import {push, replace, redirect} from 'react-router-redux'
 
 const loginUrl = '/login'
 
+
+console.log('tstlog3111' , history)
+
 export const login = (account, password) => {
+
+    console.log('tstlog1' , history)
+
     return async (dispatch) => {
 
-
+        console.log('tstlog2' , history)
         dispatch({
             type: 'HTTP',
             payload: {
@@ -24,6 +30,8 @@ export const login = (account, password) => {
                 }
             }
         }).then((data) => {
+
+            console.log('tstlog3' , history)
             console.log('data', data)
 
                     dispatch({
@@ -31,7 +39,22 @@ export const login = (account, password) => {
                         account: account,
                         token: '111'
                     })
-            dispatch(replace('/cre/cash-register-status-config'))
+
+
+            console.log('browserHistory' , browserHistory)
+            console.log('istory' , history)
+            // browserHistory.go(1)
+            // let to = browserHistory.location.state ? browserHistory.location.state : '/cre/cash-register-status-config'
+
+            let to = '/cre/cash-register-status-config'
+
+
+            //
+            if(browserHistory.location && browserHistory.state){
+                to = browserHistory.state
+            }
+            console.log('to' ,to)
+            dispatch(replace(to))
         }).catch(e => {
             showMessage(e)
         })
@@ -52,7 +75,7 @@ export const login = (account, password) => {
         //             token: data.token
         //         })
         //
-        //         console.log('state' , history.state)
+        //         console.log('state' , browserHistory.state)
         //         dispatch(replace('/'))
         //     })
         //     .catch(e => {

@@ -3,8 +3,8 @@ import thunkMiddleware from 'redux-thunk'
 import history from 'src/utils/history'
 import { routerMiddleware} from 'react-router-redux'
 
-import http from './http'
-
+// import http from './http'
+import apiMiddleware from './api'
 import log from './log'
 
 export default [
@@ -12,5 +12,5 @@ export default [
     routerMiddleware(history),
     log,
     thunkMiddleware,
-    http
+    apiMiddleware
 ]

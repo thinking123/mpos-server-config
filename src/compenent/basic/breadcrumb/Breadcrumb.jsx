@@ -16,6 +16,7 @@ const Apps = () => (
 
 const breadcrumbNameMap = {
     '/cre/cash-register-status-config': '收银机状态',
+    '/cre/cash-register-configuration': '收银机配置',
     '/cre':'CRE'
 };
 const Breadcrumb = withRouter((props) => {
