@@ -1,4 +1,4 @@
-import {message} from 'antd'
+import {message,Modal} from 'antd'
 
 export const showMessage = (msg , type) => {
     msg = (msg instanceof Error) ? msg.message : msg
@@ -26,4 +26,12 @@ export const toLocalDatetime = (datetime)=>{
     }else{
         return ''
     }
+}
+
+export const confirm = (config)=>{
+    let init = {title:'提示' , okText:'确定',cancelText:'取消' , iconType:'info-circle',onCancel() {},onOk() {}}
+
+    config = {...init , ...config}
+
+    Modal.confirm(config)
 }

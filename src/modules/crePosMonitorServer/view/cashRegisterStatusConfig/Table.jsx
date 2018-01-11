@@ -1,8 +1,12 @@
-import { Table ,Icon} from 'antd';
+import { Table ,Icon,Row,Button} from 'antd';
 import React, { Component } from 'react';
-
+import {confirm} from 'src/utils/util'
+import css from './cashRegisterStatusConfig.less'
+const onResetClick = ()=>{
+    confirm()
+}
 const columns = [
-    { title: '', width: 100, key: 'icon', fixed: 'left' ,
+    { title: '', width: 62, key: 'icon', fixed: 'left' ,
     render:()=><Icon type="check-circle" />},
     { title: '收银机号', dataIndex: 'cashNo', key: 'cashNo'},
     { title: '状态', dataIndex: 'status', key: 'status'},
@@ -19,7 +23,7 @@ const columns = [
         width: 100,
         render: () => {
 
-            return (<a href="#">强制注销</a>)},
+            return (<a  onClick={onResetClick}>强制注销</a>)},
     },
 ];
 const pagination = {
@@ -48,7 +52,24 @@ for(let i = 0 ; i < 120 ; i++){
     data.push(d)
 }
 
-const MyTable = ()=><Table  columns={columns} dataSource={data}
+const rowSelection = {
+    fixed:true
+};
+const Header = ()=>(
+    <div className={css.btnGroup}>
+        <Button
+            type="primary"
+        >
+            全部强制注销
+        </Button>
+
+        <Button
+        >
+            更新资料
+        </Button>
+    </div>
+)
+const MyTable = ()=><Table   title={Header} rowSelection={rowSelection}  columns={columns} dataSource={data}
                        pagination={pagination} bordered/>
-console.log('muta' , MyTable)
+
 export default MyTable
