@@ -5,7 +5,6 @@ import { combineReducers } from 'redux'
 
 
 
-
 export default combineReducers({
     loading,
     baseConfig
