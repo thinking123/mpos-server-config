@@ -99,6 +99,10 @@ const config = {
         // hot: true,
         open: true,
         index: 'index.html',
+        //http://localhost:9082/cre-pos/service/authen/login
+        proxy:{
+            '/cre-pos':'http://localhost:9082/cre-pos/service'
+        }
         // historyApiFallback: {
         //     index: 'index.html'
         // }

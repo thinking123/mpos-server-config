@@ -1,3 +1,5 @@
+import * as action from './action'
+import {showMessage} from 'src/utils/util'
 let user = {
     account:'',
     isLogin:false,
@@ -21,19 +23,25 @@ if(localStorage.getItem('CRE_ACCOUNT')){
     }
 }
 
+const login = ()=>{
+
+}
 
 
 export default function account(state = user , action){
     switch (action.type){
-        case 'CRE_LOGIN':
+        case 'CRE_LOGIN_SUCCESS':
             let res = {...state , loginDate:new Date() , isLogin :true , token:action.token ,account:action.account}
             localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(res))
             return res
-        case 'CRE_LOGOUT':
+        case 'CRE_LOGIN_FAILURE':
+            showMessage(action.payload)
+            return state
+        case 'CRE_LOGOUT_SUCCESS':
             let resout = {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
             localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(resout))
             return resout
         default:
-            return state;
+            return state
     }
 }

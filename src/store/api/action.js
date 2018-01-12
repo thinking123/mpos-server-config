@@ -1,7 +1,10 @@
-/*eslint-disable */
-import {RSAA} from 'redux-api-middleware' //eslint-disable-line
-/*eslint-disable */
+/* eslint-disable */
+import { RSAA } from 'redux-api-middleware'
+/* eslint-enable */
+// import { RSAA } from 'redux-api-middleware';
 import {startLoading, endLoading} from 'src/store/base/loading/action'
+
+console.log('RSAA' , RSAA)
 
 const baseUrl = 'http://localhost:8080'
 let queue = []
@@ -21,40 +24,38 @@ const end = (dispatch) => {
 
 export const request = (partialUrl, method = 'GET', body = {}) => {
 
-    return dispatch => {
-
-        dispatch({
-            [RSAA]: {
-                endpoint: `${baseUrl}/${partialUrl}`,
-                method,
-                body,
-                types: [
-                    {
-                        type: 'REQUEST',
-                        payload: (action, state) => {
-                            begin(dispatch)
-                        }
-                    },
-                    {
-                        type: 'SUCCESS',
-                        payload: (action, state, res) => {
-                            end(dispatch)
-                            console.log(res)
-                        }
-                    },
-                    {
-                        type: 'FAILURE',
-                        meta: (action, state, res) => {
-                            end(dispatch)
-                           console.log(res)
-                        },
-                        payload: (action, state, res) => {
-                            end(dispatch)
-                            console.log(res)
-                        }
-                    }
-                    ]
-            }
-        })
+    return {
+        [RSAA]: {
+            // endpoint: `${baseUrl}/${partialUrl}`,
+            endpoint: 'https://redux.js.org/docs/api/compose.html',
+            method,
+            types: ['REQUEST', 'SUCCESS', 'FAILURE']
+            // types: [
+            //     {
+            //         type: 'REQUEST',
+            //         payload: (action, state) => {
+            //             begin(dispatch)
+            //         }
+            //     },
+            //     {
+            //         type: 'SUCCESS',
+            //         payload: (action, state, res) => {
+            //             end(dispatch)
+            //             console.log(res)
+            //         }
+            //     },
+            //     {
+            //         type: 'FAILURE',
+            //         meta: (action, state, res) => {
+            //             end(dispatch)
+            //            console.log(res)
+            //         },
+            //         payload: (action, state, res) => {
+            //             end(dispatch)
+            //             console.log(res)
+            //         }
+            //     }
+            //     ]
+        }
     }
 }
