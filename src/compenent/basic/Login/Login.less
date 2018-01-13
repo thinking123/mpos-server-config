@@ -83,17 +83,24 @@
   right: 0;
   background-color: aquamarine;
 
-  & .title{
+  .form-wrap{
     position: absolute;
-    top: calc(50% - 35px);
-    left: calc(50% - 255px);
+    top: ~"calc(50% - 35px)";
+    left: ~"calc(50% - 255px)";
     z-index: 2;
+    display: flex;
+    .title{
+      position: relative;
+      color: #fff;
+      font-family: 'Exo', sans-serif;
+      font-size: 35px;
+      font-weight: 200;
+      align-self: center;
+    }
 
-    float: left;
-    color: #fff;
-    font-family: 'Exo', sans-serif;
-    font-size: 35px;
-    font-weight: 200;
+    form{
+      position: relative;
+    }
   }
 
 }

@@ -1,6 +1,8 @@
-import CashRegisterStatusConfig from 'cre/view/CashRegisterStatusConfig'
+// import CashRegisterStatusConfig from 'cre/view/CashRegisterStatusConfig'
 
-export default {
+import {withLazyLoading} from 'src/compenent/basic/lazyLoad/lazyLoadingWrapper'
+
+export default [{
     path:'/cre/cash-register-status-config',
-    component:CashRegisterStatusConfig
-}
+    component:withLazyLoading(()=>import(/* webpackChunkName: "CashRegisterStatusConfig" */ 'cre/view/CashRegisterStatusConfig'))
+}]

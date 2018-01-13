@@ -10,7 +10,7 @@
 // import Login from 'src/compenent/basic/Login'
 //
 // import AuthRoute from './router/AuthRoute'
-// import Layout from 'src/compenent/layout/Layout'
+// import Layout from 'src/compenent/login/Layout'
 // //使用ConnectedRouter代替Router，在Redux的action中可以使用 dispatch(push())
 // import {ConnectedRouter} from  'react-router-redux'
 //
@@ -43,8 +43,17 @@
 import React from 'react'
 import {render} from 'react-dom'
 import App from './App'
-
+//for hmr
+import { AppContainer } from 'react-hot-loader'
 render(
     <App/>,
     document.getElementById('root')
 )
+
+
+// Webpack Hot Module Replacement API
+// if (module.hot) {
+//     module.hot.accept('./App', () => {
+//         render(App)
+//     })
+// }

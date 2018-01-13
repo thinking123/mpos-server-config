@@ -12,3 +12,10 @@ export const endLoading = () => {
         isLoading:false
     };
 };
+
+export const loading = (isLoading)=>{
+    return {
+        type: 'CRE_LOADING',
+        isLoading
+    };
+}
