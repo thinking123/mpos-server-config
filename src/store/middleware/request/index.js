@@ -1,6 +1,7 @@
 import {loading} from 'src/store/base/loading/action'
 import {httpConfig, fetchConfig} from './requestConfig'
 
+import fetchMock from './fetchMock'
 
 let timer = []
 const begin = (dispatch) => {

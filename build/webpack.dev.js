@@ -91,7 +91,8 @@ const config = {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name]-[hash:5].js',
         //使用 devServer 必须设置publicPath
-        publicPath: "/"
+        publicPath: "/",
+        chunkFilename: "noenteryfile-[id]-[name].js"
     },
     devServer: {
         compress: true,
