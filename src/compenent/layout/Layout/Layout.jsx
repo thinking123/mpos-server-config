@@ -7,6 +7,9 @@ import Sidebar from 'src/compenent/layout/Sidebar'
 import Breadcrumb from 'src/compenent/basic/breadcrumb/Breadcrumb'
 import css from './Layout.less'
 
+import {withLazyLoading} from 'src/compenent/basic/lazyLoad/lazyLoadingWrapper'
+
+
 const RouteWithSubRoutes = (route) => (
     <Route path={route.path} render={props => (
         // pass the sub-routes down to keep nesting
