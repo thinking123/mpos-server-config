@@ -1,4 +1,4 @@
-import {logout} from 'src/store/layout/action'
+import {logout} from 'src/store/login/action'
 import {toggleSidebar} from 'src/store/base/action'
 const getUserInfo = user =>{
     return user

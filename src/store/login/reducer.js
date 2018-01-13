@@ -31,12 +31,12 @@ const login = ()=>{
 export default function account(state = user , action){
     switch (action.type){
         case 'CRE_LOGIN_SUCCESS':
-            let res = {...state , loginDate:new Date() , isLogin :true , token:action.payload.token ,account:action.payload.account}
+            let res = {...state , loginDate:new Date() , isLogin :true , token:action.token ,account:action.account}
             localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(res))
             return res
-        case 'CRE_LOGIN_FAILURE':
-            showMessage(action.payload)
-            return state
+        // case 'CRE_LOGIN_FAILURE':
+        //     showMessage(action.payload)
+        //     return state
         case 'CRE_LOGOUT_SUCCESS':
             let resout = {...state ,account : action.account, logoutDate:new Date() , isLogin :false}
             localStorage.setItem('CRE_ACCOUNT' , JSON.stringify(resout))

@@ -3,7 +3,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import middleware from './middleware'
 
 // import cre from 'cre/store'
-import user from './layout/reducer'
+import user from './login/reducer'
 import base from './base'
 import entities from './api/reducer'
 // import api from './api/reducer'
