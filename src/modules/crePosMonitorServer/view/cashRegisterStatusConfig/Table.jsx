@@ -69,7 +69,15 @@ const Header = ()=>(
         </Button>
     </div>
 )
-const MyTable = ()=><Table   title={Header} rowSelection={rowSelection}  columns={columns} dataSource={data}
+const MyTable = ({getCashRegisterList})=><Table   title={Header} rowSelection={rowSelection}  columns={columns} dataSource={data}
                        pagination={pagination} bordered/>
 
+
+class MyTable extends Component{
+    state = {
+        list :[]
+    }
+
+
+}
 export default MyTable

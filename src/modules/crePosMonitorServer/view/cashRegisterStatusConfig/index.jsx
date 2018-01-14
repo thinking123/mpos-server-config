@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button ,Select ,Row,Col} from 'antd';
 import Table from './Table'
 import css from './cashRegisterStatusConfig.less'
+import {mapStateToProps , mapDispatchToProps} from './cashRegisterStatusConfigContainer'
 const FormItem = Form.Item
 const Option = Select.Option
 
@@ -70,14 +71,14 @@ class SearchForm extends Component{
 
 const WrappedSearchForm = Form.create()(SearchForm);
 
-const CashRegisterStatus = ()=>{
+const CashRegisterStatus = ({getCashRegisterList})=>{
 
     return (
         <div>
             <WrappedSearchForm/>
-            <Table/>
+            <Table getCashRegisterList={getCashRegisterList}/>
         </div>
     )}
 
 
- export default CashRegisterStatus
+ export default connect(mapStateToProps,mapDispatchToProps)(CashRegisterStatus)

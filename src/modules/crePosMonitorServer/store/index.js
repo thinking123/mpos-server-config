@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
-import CashRegisterStatusConfig from './cashRegisterStatusConfig'
+import cashRegisterView from './cashRegisterStatusConfig/reducer'
 
 
 export default combineReducers({
-    CashRegisterStatusConfig
+    cashRegisterView
 })

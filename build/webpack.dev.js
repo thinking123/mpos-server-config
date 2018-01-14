@@ -7,7 +7,7 @@ const path = require('path'),
 const config = {
     context: path.resolve(__dirname, "../"),
     entry: {
-        main: ['./src/index.js']
+        main: ['./src/action.js']
     },
     resolve: {
         alias: {

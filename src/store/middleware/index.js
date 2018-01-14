@@ -13,5 +13,5 @@ export default [
     log,
     thunkMiddleware,
     // apiMiddleware
-    request
+    // request
 ]

@@ -1,0 +1,1 @@
+export const GET_CASH_REGISTER = 'GET_CASH_REGISTER'

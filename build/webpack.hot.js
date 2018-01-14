@@ -9,7 +9,7 @@ const path = require('path'),
 const config = {
     context: path.resolve(__dirname, "../"),
     entry: {
-        main: ['webpack-hot-middleware/client','./src/index.js']
+        main: ['webpack-hot-middleware/client','./src/action.js']
     },
     resolve: {
         alias: {
